@@ -1,14 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import {
-  Outlet,
-  Link,
-  createRootRouteWithContext,
-  useRouter,
-  HeadContent,
-  Scripts,
-} from "@tanstack/react-router";
-
-import appCss from "../styles.css?url";
+import { Outlet, Link, createRootRouteWithContext, useRouter } from "@tanstack/react-router";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 
@@ -49,47 +40,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "RK Solar Green Mount | Premium Solar Solutions in India" },
-      { name: "description", content: "Premier solar installation company in India. Residential, commercial and industrial solar systems with MNRE-approved panels, PM Surya Ghar subsidy and financing." },
-      { property: "og:title", content: "RK Solar Green Mount | Premium Solar Solutions in India" },
-      { property: "og:description", content: "Premier solar installation company in India. Residential, commercial and industrial solar systems with MNRE-approved panels, PM Surya Ghar subsidy and financing." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:title", content: "RK Solar Green Mount | Premium Solar Solutions in India" },
-      { name: "twitter:description", content: "Premier solar installation company in India. Residential, commercial and industrial solar systems with MNRE-approved panels, PM Surya Ghar subsidy and financing." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/872b8f16-be16-4afb-ba5f-5fdb818d21e1" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/872b8f16-be16-4afb-ba5f-5fdb818d21e1" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "icon", type: "image/png", href: "/favicon.png" },
-      { rel: "apple-touch-icon", href: "/favicon.png" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head><HeadContent /></head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
