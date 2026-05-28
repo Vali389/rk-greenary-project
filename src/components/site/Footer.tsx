@@ -11,20 +11,13 @@ export function Footer() {
       <div className="container-x grid gap-12 py-16 md:grid-cols-4">
         {/* Brand */}
         <div className="md:col-span-1">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center">
             <img
               src={logo}
-              alt="RK Green Mount Energies"
-              className="h-10 w-10 rounded object-contain"
+              alt="RK Solar Green Mount"
+              className="h-20 w-auto object-contain"
+              style={{ maxWidth: "200px", filter: "brightness(0) invert(1)" }}
             />
-            <div>
-              <div className="font-display text-base font-bold tracking-wide text-white">
-                RK GREEN MOUNT
-              </div>
-              <div className="text-[9px] font-bold uppercase tracking-[0.3em] text-gold">
-                ENERGIES
-              </div>
-            </div>
           </div>
           <p className="mt-4 text-sm text-white/60 leading-relaxed">
             Powering India's future with clean, reliable, and affordable solar energy solutions since 2019.

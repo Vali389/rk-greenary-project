@@ -38,22 +38,20 @@ export function Navbar() {
 
       <div className="container-x flex items-center justify-between py-3">
         {/* Logo + Brand */}
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="relative">
-            <div className="absolute -inset-1 rounded-lg bg-gold/20 blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <div className="relative flex-shrink-0">
+            <div className="absolute -inset-1 rounded-lg bg-gold/15 blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
             <img
               src={logo}
-              alt="RK Green Mount Energies"
-              className="relative h-11 w-11 rounded-md object-contain"
+              alt="RK Solar Green Mount"
+              className="relative h-12 w-auto object-contain"
             />
           </div>
           <div className="leading-tight">
-            <div className="font-display text-base font-bold tracking-wide text-navy-deep">
+            <div className="font-display text-sm font-bold tracking-wide text-navy-deep">
               RK GREEN MOUNT
             </div>
-            <div
-              className="text-[9px] font-bold uppercase tracking-[0.3em] text-gold"
-            >
+            <div className="text-[9px] font-bold uppercase tracking-[0.3em] text-gold">
               ENERGIES
             </div>
           </div>
