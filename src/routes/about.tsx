@@ -79,7 +79,7 @@ function AboutPage() {
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs uppercase tracking-[0.3em] text-gold">Our Values</p>
-            <h2 className="mt-4 text-4xl font-semibold">Built on trust, driven by purpose.</h2>
+            <h2 className="mt-4 text-4xl font-semibold text-white">Built on trust, driven by purpose.</h2>
           </div>
           <div className="mt-14 grid gap-7 md:grid-cols-3">
             {values.map((v, i) => (

@@ -36,7 +36,7 @@ export function PageHero({ image, eyebrow, title, subtitle, height = "md", child
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="max-w-4xl text-5xl font-semibold leading-[1.05] text-foreground sm:text-6xl md:text-7xl"
+          className="max-w-4xl text-5xl font-semibold leading-[1.05] text-white sm:text-6xl md:text-7xl"
         >
           {title}
         </motion.h1>
@@ -45,7 +45,7 @@ export function PageHero({ image, eyebrow, title, subtitle, height = "md", child
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl"
+            className="mt-6 max-w-2xl text-lg text-white/80 md:text-xl"
           >
             {subtitle}
           </motion.p>

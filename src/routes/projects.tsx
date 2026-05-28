@@ -71,7 +71,7 @@ function ProjectsPage() {
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs uppercase tracking-[0.3em] text-gold">Testimonials</p>
-            <h2 className="mt-4 text-4xl font-semibold">What our clients say.</h2>
+            <h2 className="mt-4 text-4xl font-semibold text-white">What our clients say.</h2>
           </div>
           <div className="mt-14 grid gap-7 md:grid-cols-3">
             {testimonials.map((t, i) => (

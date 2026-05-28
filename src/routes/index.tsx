@@ -119,7 +119,7 @@ function Index() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-6 text-5xl font-bold leading-[1.02] sm:text-6xl md:text-7xl lg:text-8xl"
+              className="mt-6 text-5xl font-bold leading-[1.02] text-white sm:text-6xl md:text-7xl lg:text-8xl"
             >
               Power Your Future
               <br />
@@ -129,7 +129,7 @@ function Index() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.25 }}
-              className="mt-7 max-w-2xl text-xl text-muted-foreground md:text-2xl"
+              className="mt-7 max-w-2xl text-xl text-white/80 md:text-2xl"
             >
               Clean, sustainable and cost-effective energy solutions for homes,
               businesses and industries across India — engineered for performance,
@@ -143,14 +143,14 @@ function Index() {
             >
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 rounded-full bg-gradient-gold px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-gold transition-transform hover:scale-105"
+                className="group inline-flex items-center gap-2 rounded-full bg-gradient-gold px-7 py-3.5 text-sm font-semibold text-white shadow-gold transition-transform hover:scale-105"
               >
                 Get Free Quote
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 rounded-full border border-gold/50 bg-navy-deep/40 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur transition-colors hover:border-gold hover:text-gold"
+                className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur transition-colors hover:border-gold hover:text-gold"
               >
                 Explore Services
               </Link>
@@ -160,7 +160,7 @@ function Index() {
       </section>
 
       {/* TRUST BADGES */}
-      <section className="border-y border-gold/15 bg-navy-deep py-5">
+      <section className="border-y border-gold/20 bg-navy-deep py-5">
         <div className="container-x">
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14">
             {badges.map((b, i) => (
@@ -170,7 +170,7 @@ function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="flex items-center gap-2.5 text-sm font-semibold text-muted-foreground"
+                className="flex items-center gap-2.5 text-sm font-semibold text-white/80"
               >
                 <b.icon className="h-5 w-5 text-gold" />
                 {b.label}
@@ -260,7 +260,7 @@ function Index() {
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">Why Choose Us</p>
-            <h2 className="mt-4 text-4xl font-bold md:text-5xl">
+            <h2 className="mt-4 text-4xl font-bold text-white md:text-5xl">
               Trust, performance &amp; <span className="text-gradient-gold">sustainability.</span>
             </h2>
           </div>
@@ -334,15 +334,15 @@ function Index() {
           <div className="absolute inset-0 bg-navy-deep/85" />
         </div>
         <div className="container-x relative z-10 text-center">
-          <h2 className="mx-auto max-w-3xl text-4xl font-bold md:text-5xl">
+          <h2 className="mx-auto max-w-3xl text-4xl font-bold text-white md:text-5xl">
             Ready to switch to <span className="text-gradient-gold">solar?</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">
+          <p className="mx-auto mt-5 max-w-2xl text-lg text-white/75">
             Get a free site survey and personalised quote within 24 hours.
           </p>
           <Link
             to="/contact"
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-gradient-gold px-8 py-4 text-sm font-semibold text-primary-foreground shadow-gold transition-transform hover:scale-105"
+            className="mt-10 inline-flex items-center gap-2 rounded-full bg-gradient-gold px-8 py-4 text-sm font-semibold text-white shadow-gold transition-transform hover:scale-105"
           >
             Get Free Quote <ArrowRight className="h-4 w-4" />
           </Link>

@@ -1,57 +1,97 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, Phone, MapPin, Sun } from "lucide-react";
+import { Mail, Phone, MapPin, Sun, ArrowRight } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-border bg-navy-deep">
+    <footer className="relative border-t border-border bg-navy-deep text-foreground/90">
+      {/* Green top border accent */}
+      <div className="bg-gradient-gold h-1 w-full" />
+
       <div className="container-x grid gap-12 py-16 md:grid-cols-4">
+        {/* Brand */}
         <div className="md:col-span-1">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="" className="h-10 w-10 rounded object-contain" />
+            <img
+              src={logo}
+              alt="RK Green Mount Energies"
+              className="h-10 w-10 rounded object-contain"
+              style={{ filter: "hue-rotate(60deg) saturate(1.3)" }}
+            />
             <div>
-              <div className="font-display text-lg">RK Solar</div>
-              <div className="text-[10px] uppercase tracking-[0.25em] text-gold">Green Mount</div>
+              <div className="font-display text-base font-bold tracking-wide text-white">
+                RK GREEN MOUNT
+              </div>
+              <div className="text-[9px] font-bold uppercase tracking-[0.3em] text-gold">
+                ENERGIES
+              </div>
             </div>
           </div>
-          <p className="mt-4 text-sm text-muted-foreground">
-            Powering India's future with clean, reliable, and affordable solar energy solutions.
+          <p className="mt-4 text-sm text-white/60 leading-relaxed">
+            Powering India's future with clean, reliable, and affordable solar energy solutions since 2019.
           </p>
+          <Link
+            to="/contact"
+            className="mt-5 inline-flex items-center gap-2 rounded-full bg-gradient-gold px-4 py-2 text-xs font-semibold text-white shadow-gold hover:scale-105 transition-transform"
+          >
+            Get Free Quote <ArrowRight className="h-3 w-3" />
+          </Link>
         </div>
 
+        {/* Explore */}
         <div>
-          <h4 className="mb-4 text-sm font-semibold uppercase tracking-widest text-gold">Explore</h4>
-          <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/about" className="hover:text-gold">About Us</Link></li>
-            <li><Link to="/services" className="hover:text-gold">Services</Link></li>
-            <li><Link to="/projects" className="hover:text-gold">Projects</Link></li>
-            <li><Link to="/contact" className="hover:text-gold">Contact</Link></li>
+          <h4 className="mb-4 text-sm font-bold uppercase tracking-widest text-gold">
+            Explore
+          </h4>
+          <ul className="space-y-2 text-sm text-white/60">
+            <li><Link to="/about" className="hover:text-gold transition-colors">About Us</Link></li>
+            <li><Link to="/services" className="hover:text-gold transition-colors">Services</Link></li>
+            <li><Link to="/projects" className="hover:text-gold transition-colors">Projects</Link></li>
+            <li><Link to="/contact" className="hover:text-gold transition-colors">Contact</Link></li>
           </ul>
         </div>
 
+        {/* Services */}
         <div>
-          <h4 className="mb-4 text-sm font-semibold uppercase tracking-widest text-gold">Services</h4>
-          <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/services/$slug" params={{ slug: "residential" }} className="hover:text-gold">Residential Solar</Link></li>
-            <li><Link to="/services/$slug" params={{ slug: "commercial" }} className="hover:text-gold">Commercial Solar</Link></li>
-            <li><Link to="/services/$slug" params={{ slug: "industrial" }} className="hover:text-gold">Industrial Solar</Link></li>
-            <li><Link to="/services/$slug" params={{ slug: "pm-surya-ghar" }} className="hover:text-gold">PM Surya Ghar</Link></li>
+          <h4 className="mb-4 text-sm font-bold uppercase tracking-widest text-gold">
+            Services
+          </h4>
+          <ul className="space-y-2 text-sm text-white/60">
+            <li><Link to="/services/$slug" params={{ slug: "residential" }} className="hover:text-gold transition-colors">Residential Solar</Link></li>
+            <li><Link to="/services/$slug" params={{ slug: "commercial" }} className="hover:text-gold transition-colors">Commercial Solar</Link></li>
+            <li><Link to="/services/$slug" params={{ slug: "industrial" }} className="hover:text-gold transition-colors">Industrial Solar</Link></li>
+            <li><Link to="/services/$slug" params={{ slug: "pm-surya-ghar" }} className="hover:text-gold transition-colors">PM Surya Ghar</Link></li>
           </ul>
         </div>
 
+        {/* Contact */}
         <div>
-          <h4 className="mb-4 text-sm font-semibold uppercase tracking-widest text-gold">Contact</h4>
-          <ul className="space-y-3 text-sm text-muted-foreground">
-            <li className="flex items-start gap-3"><Phone className="mt-0.5 h-4 w-4 text-gold" /> +91 93479 20454</li>
-            <li className="flex items-start gap-3"><Mail className="mt-0.5 h-4 w-4 text-gold" /> info@rksolar.in</li>
-            <li className="flex items-start gap-3"><MapPin className="mt-0.5 h-4 w-4 text-gold" /> Hyderabad, Telangana, India</li>
+          <h4 className="mb-4 text-sm font-bold uppercase tracking-widest text-gold">
+            Contact
+          </h4>
+          <ul className="space-y-3 text-sm text-white/60">
+            <li className="flex items-start gap-3">
+              <Phone className="mt-0.5 h-4 w-4 text-gold flex-shrink-0" />
+              <a href="tel:+919347920454" className="hover:text-gold transition-colors">+91 93479 20454</a>
+            </li>
+            <li className="flex items-start gap-3">
+              <Mail className="mt-0.5 h-4 w-4 text-gold flex-shrink-0" />
+              <a href="mailto:info@rksolar.in" className="hover:text-gold transition-colors">info@rksolar.in</a>
+            </li>
+            <li className="flex items-start gap-3">
+              <MapPin className="mt-0.5 h-4 w-4 text-gold flex-shrink-0" />
+              Hyderabad, Telangana, India
+            </li>
           </ul>
         </div>
       </div>
-      <div className="border-t border-border">
-        <div className="container-x flex flex-col items-center justify-between gap-3 py-6 text-xs text-muted-foreground md:flex-row">
-          <p>© {new Date().getFullYear()} RK Solar Green Mount. All rights reserved.</p>
-          <p className="flex items-center gap-2"><Sun className="h-3.5 w-3.5 text-gold" /> Powering a greener tomorrow.</p>
+
+      <div className="border-t border-white/10">
+        <div className="container-x flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/40 md:flex-row">
+          <p>© {new Date().getFullYear()} RK Green Mount Energies. All rights reserved.</p>
+          <p className="flex items-center gap-2">
+            <Sun className="h-3.5 w-3.5 text-gold" /> Powering a greener tomorrow.
+          </p>
         </div>
       </div>
     </footer>
