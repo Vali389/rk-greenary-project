@@ -16,7 +16,6 @@ export function Footer() {
               src={logo}
               alt="RK Green Mount Energies"
               className="h-10 w-10 rounded object-contain"
-              style={{ filter: "hue-rotate(60deg) saturate(1.3)" }}
             />
             <div>
               <div className="font-display text-base font-bold tracking-wide text-white">

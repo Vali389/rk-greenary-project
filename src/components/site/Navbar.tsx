@@ -43,9 +43,8 @@ export function Navbar() {
             <div className="absolute -inset-1 rounded-lg bg-gold/20 blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
             <img
               src={logo}
-              alt="RK Solar"
+              alt="RK Green Mount Energies"
               className="relative h-11 w-11 rounded-md object-contain"
-              style={{ filter: "hue-rotate(60deg) saturate(1.3)" }}
             />
           </div>
           <div className="leading-tight">
