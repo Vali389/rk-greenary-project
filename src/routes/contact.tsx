@@ -36,8 +36,8 @@ function ContactPage() {
           >
             {[
               { icon: Phone, title: "Call us", line1: "+91 93479 20454", line2: "Mon–Sat, 9 AM – 7 PM" },
-              { icon: Mail, title: "Email", line1: "info@rksolar.in", line2: "We reply within 24 hours" },
-              { icon: MapPin, title: "Office", line1: "Hyderabad, Telangana", line2: "Serving pan-India" },
+              { icon: Mail, title: "Email", line1: "rkgreenmountenergies@gmail.com", line2: "We reply within 24 hours" },
+              { icon: MapPin, title: "Office", line1: "HNO 5-5-51/18/3A, Opp Church, Prakash Nagar, Kukatpally, Hyderabad – 500072", line2: "Serving pan-India" },
               { icon: Clock, title: "Response time", line1: "Under 24 hours", line2: "Free site survey included" },
             ].map((c) => (
               <div key={c.title} className="flex gap-5 rounded-2xl border border-border bg-card p-6">

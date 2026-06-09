@@ -1,6 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, FileText } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const links = [
@@ -43,7 +43,7 @@ export function Navbar() {
             <div className="absolute -inset-1 rounded-lg bg-gold/15 blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
             <img
               src={logo}
-              alt="RK Solar Green Mount"
+              alt="RK Green Mount Energies"
               className="relative h-12 w-auto object-contain"
             />
           </div>
@@ -58,7 +58,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6">
           {links.map((l) => {
             const active =
               location.pathname === l.to ||
@@ -80,6 +80,22 @@ export function Navbar() {
               </Link>
             );
           })}
+
+          {/* Certificate Tab */}
+          <Link
+            to="/certificate"
+            className={`relative flex items-center gap-1.5 text-sm font-medium tracking-wide transition-colors ${
+              location.pathname === "/certificate"
+                ? "text-gold"
+                : "text-foreground/80 hover:text-gold"
+            }`}
+          >
+            <FileText className="h-4 w-4 text-gold" />
+            Certificate
+            {location.pathname === "/certificate" && (
+              <span className="absolute -bottom-1 left-0 h-0.5 w-full bg-gold rounded-full" />
+            )}
+          </Link>
         </nav>
 
         {/* CTA */}
@@ -122,6 +138,14 @@ export function Navbar() {
                 {l.label}
               </Link>
             ))}
+            {/* Certificate in mobile menu */}
+            <Link
+              to="/certificate"
+              className="flex items-center gap-2 rounded-md px-3 py-3 text-sm font-medium text-foreground/90 hover:bg-secondary hover:text-gold transition-colors"
+            >
+              <FileText className="h-4 w-4 text-gold" />
+              Certificate
+            </Link>
             <Link
               to="/contact"
               className="mt-2 rounded-full bg-gradient-gold px-3 py-3 text-center text-sm font-semibold text-primary-foreground shadow-gold"

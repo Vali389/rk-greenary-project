@@ -89,7 +89,7 @@ function ServiceDetail() {
             <div className="rounded-2xl bg-gradient-gold p-7 text-primary-foreground shadow-gold">
               <h4 className="font-display text-2xl">Need a quote?</h4>
               <p className="mt-2 text-sm opacity-90">Free survey &amp; feasibility report within 24 hours.</p>
-              <Link to="/contact" className="mt-5 inline-flex items-center gap-2 rounded-full bg-navy-deep px-5 py-3 text-sm font-semibold text-foreground hover:opacity-90">
+              <Link to="/contact" className="mt-5 inline-flex items-center gap-2 rounded-full bg-navy-deep px-5 py-3 text-sm font-semibold text-white hover:opacity-90">
                 Get Free Quote <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -102,7 +102,7 @@ function ServiceDetail() {
           <div className="flex items-end justify-between">
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-gold">Explore More</p>
-              <h3 className="mt-3 text-3xl font-semibold">Other services</h3>
+              <h3 className="mt-3 text-3xl font-semibold text-white">Other services</h3>
             </div>
             <Link to="/services" className="hidden items-center gap-2 text-sm font-semibold text-gold md:inline-flex">
               <ArrowLeft className="h-4 w-4" /> All services

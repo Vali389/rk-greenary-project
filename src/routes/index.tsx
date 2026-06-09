@@ -2,12 +2,16 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   ArrowRight, Zap, Shield, Users, Leaf, BadgeCheck, Sun,
-  Quote, Star, Award, Wallet, MapPin,
+  Quote, Star, Award, Wallet, MapPin, FileText, Download,
 } from "lucide-react";
 import bgHome from "@/assets/bg-home.jpg";
 import svcCommercial from "@/assets/svc-commercial.jpg";
 import svcIndustrial from "@/assets/svc-industrial.jpg";
 import svcResidential from "@/assets/svc-residential.jpg";
+import img100kwp from "@/assets/100kwp-soloar-rooftop-system.jpeg";
+import img56kwp from "@/assets/56kwpsoloar-rooftop-system.jpeg";
+import img49kwp from "@/assets/49kwpsolarshedmountedsytsem.jpeg";
+import warrantyCert from "@/assets/waranty-certificte.pdf";
 import { services } from "@/data/services";
 
 export const Route = createFileRoute("/")({
@@ -51,7 +55,7 @@ const badges = [
 
 const featuredProjects = [
   {
-    img: svcCommercial,
+    img: img100kwp,
     kw: "100 kWp",
     type: "Commercial",
     client: "Cedar Valley International School",
@@ -59,7 +63,7 @@ const featuredProjects = [
     saving: "70% bill reduction",
   },
   {
-    img: svcIndustrial,
+    img: img56kwp,
     kw: "56 kWp",
     type: "Industrial",
     client: "Airco Fin Tubes Pvt. Ltd.",
@@ -67,12 +71,72 @@ const featuredProjects = [
     saving: "₹80K monthly savings",
   },
   {
-    img: svcResidential,
-    kw: "40 kWp",
-    type: "Residential",
-    client: "Divino Villas Society",
-    location: "Tellapur, Hyderabad",
-    saving: "Common area powered",
+    img: img49kwp,
+    kw: "49 kWp",
+    type: "Industrial",
+    client: "Industrial Client",
+    location: "Hyderabad, Telangana",
+    saving: "₹45K+ monthly savings",
+  },
+];
+
+// Bank / Authority Partners — MSME, MNRE, TSREDCO, TGREDCO and banks
+const bankPartners = [
+  {
+    name: "MSME",
+    fullName: "Ministry of Micro, Small & Medium Enterprises",
+    logo: "https://msme.gov.in/sites/default/files/MSME-new-logo.png",
+    abbr: "MSME",
+    color: "border-blue-200",
+  },
+  {
+    name: "MNRE",
+    fullName: "Ministry of New & Renewable Energy",
+    logo: "https://mnre.gov.in/img/mnre_logo_1.png",
+    abbr: "MNRE",
+    color: "border-green-200",
+  },
+  {
+    name: "TSREDCO",
+    fullName: "Telangana State Renewable Energy Development Corp.",
+    logo: "https://tsredco.telangana.gov.in/images/tsredco_logo.png",
+    abbr: "TSREDCO",
+    color: "border-orange-200",
+  },
+  {
+    name: "TGREDCO",
+    fullName: "Telangana Renewable Energy Dev. Corp.",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/90px-Emblem_of_India.svg.png",
+    abbr: "TGREDCO",
+    color: "border-yellow-200",
+  },
+  {
+    name: "SBI",
+    fullName: "State Bank of India — Solar Finance",
+    logo: "https://www.sbi.co.in/documents/16012/22867/sbi-logo.svg",
+    abbr: "SBI",
+    color: "border-indigo-200",
+  },
+  {
+    name: "ICICI Bank",
+    fullName: "ICICI Bank — Solar Loan Partner",
+    logo: "https://www.icicibank.com/content/dam/icicibank/india/managed-assets/images/icici-bank-logo.svg",
+    abbr: "ICICI",
+    color: "border-red-200",
+  },
+  {
+    name: "Bank of Baroda",
+    fullName: "Bank of Baroda — Solar Financing",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/90px-Emblem_of_India.svg.png",
+    abbr: "BOB",
+    color: "border-orange-100",
+  },
+  {
+    name: "Canara Bank",
+    fullName: "Canara Bank — Solar Loans",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/90px-Emblem_of_India.svg.png",
+    abbr: "CANARA",
+    color: "border-sky-200",
   },
 ];
 

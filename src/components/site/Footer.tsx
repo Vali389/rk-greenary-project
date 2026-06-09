@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, Phone, MapPin, Sun, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, Sun, ArrowRight, FileText } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 export function Footer() {
@@ -48,6 +48,15 @@ export function Footer() {
             <li><Link to="/services" className="hover:text-gold transition-colors">Services</Link></li>
             <li><Link to="/projects" className="hover:text-gold transition-colors">Projects</Link></li>
             <li><Link to="/contact" className="hover:text-gold transition-colors">Contact</Link></li>
+            <li>
+              <Link
+                to="/certificate"
+                className="inline-flex items-center gap-1.5 hover:text-gold transition-colors"
+              >
+                <FileText className="h-3.5 w-3.5 text-gold" />
+                Certificates & Docs
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -76,11 +85,11 @@ export function Footer() {
             </li>
             <li className="flex items-start gap-3">
               <Mail className="mt-0.5 h-4 w-4 text-gold flex-shrink-0" />
-              <a href="mailto:info@rksolar.in" className="hover:text-gold transition-colors">info@rksolar.in</a>
+              <a href="mailto:rkgreenmountenergies@gmail.com" className="hover:text-gold transition-colors break-all">rkgreenmountenergies@gmail.com</a>
             </li>
             <li className="flex items-start gap-3">
               <MapPin className="mt-0.5 h-4 w-4 text-gold flex-shrink-0" />
-              Hyderabad, Telangana, India
+              <span>HNO 5-5-51/18/3A, Opp Church, Prakash Nagar, Kukatpally, Hyderabad – 500072</span>
             </li>
           </ul>
         </div>

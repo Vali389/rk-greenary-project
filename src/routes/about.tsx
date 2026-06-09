@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Award, Leaf, Target, Eye, Users, BadgeCheck } from "lucide-react";
+import { Award, Leaf, Target, Eye, Users, BadgeCheck, FileText, Download } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import bgAbout from "@/assets/bg-about.jpg";
+import warrantyCert from "@/assets/waranty-certificte.pdf";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
@@ -153,6 +154,41 @@ function AboutPage() {
               </div>
             ))}
           </div>
+
+          {/* Warranty Certificate Banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-12 flex flex-col items-center justify-between gap-6 rounded-2xl border border-gold/30 bg-card p-8 sm:flex-row"
+          >
+            <div className="flex items-center gap-5">
+              <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-gold text-white">
+                <FileText className="h-7 w-7" />
+              </div>
+              <div>
+                <div className="font-semibold text-lg">RK Green Mount Energies — Solar Warranty Certificate</div>
+                <div className="mt-1 text-sm text-muted-foreground">5-year workmanship · 25-year panel performance · 5-year AMC</div>
+              </div>
+            </div>
+            <div className="flex flex-shrink-0 gap-3">
+              <a
+                href={warrantyCert}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-gold px-5 py-2.5 text-sm font-semibold text-white shadow-gold transition-transform hover:scale-105"
+              >
+                <FileText className="h-4 w-4" /> View Certificate
+              </a>
+              <a
+                href={warrantyCert}
+                download="RK-Green-Mount-Energies-Warranty-Certificate.pdf"
+                className="inline-flex items-center gap-2 rounded-full border border-gold px-5 py-2.5 text-sm font-semibold text-gold transition-all hover:bg-gold hover:text-white"
+              >
+                <Download className="h-4 w-4" /> Download
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
     </>

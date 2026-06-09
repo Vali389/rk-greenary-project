@@ -11,7 +11,9 @@ export default defineConfig({
     tailwindcss(),
     tsconfigPaths(),
   ],
+  assetsInclude: ["**/*.pdf"],
   server: {
     port: 8080,
   },
 });
+
