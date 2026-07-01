@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Quote, Star, MapPin, Zap } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
-import bgProjects from "@/assets/bg-projects.jpg";
+import heroImage from "@/assets/hero_projects_new.png";
 import svcIndustrial from "@/assets/svc-industrial.jpg";
 import svcCommercial from "@/assets/svc-commercial.jpg";
 import svcResidential from "@/assets/svc-residential.jpg";
@@ -11,6 +11,13 @@ import img100kwp from "@/assets/100kwp-soloar-rooftop-system.jpeg";
 import img49kwp from "@/assets/49kwpsolarshedmountedsytsem.jpeg";
 import img56kwp from "@/assets/56kwpsoloar-rooftop-system.jpeg";
 import img6kwp from "@/assets/6kwpsolorrooftopsytem.jpeg";
+import logoNatureValley from "@/assets/nature-vallry-resorts.png";
+import logoCedarValley from "@/assets/cedar valley international school.avif";
+import logoEcoVillage from "@/assets/eco-villago-resorts.png";
+import logoEeshaHospital from "@/assets/eesha-hospitals.png";
+import logoHarvestSchool from "@/assets/harvest-publicshool.png";
+import logoHarvestSpring from "@/assets/harvest-spring-leaf.png";
+import logoKarthikeya from "@/assets/karthikeya-constryctions.png";
 
 export const Route = createFileRoute("/projects")({
   component: ProjectsPage,
@@ -29,6 +36,14 @@ const projects = [
     client: "Cedar Valley International School",
     location: "Khammam, Telangana",
     saving: "70% bill reduction",
+    type: "Commercial",
+  },
+  {
+    img: img6kwp,
+    title: "6 kWp Rooftop System",
+    client: "Nature Valley Resorts",
+    location: "Hyderabad, Telangana",
+    saving: "90% bill reduction",
     type: "Commercial",
   },
   {
@@ -106,7 +121,7 @@ function ProjectsPage() {
   return (
     <>
       <PageHero
-        image={bgProjects}
+        image={heroImage}
         eyebrow="Projects"
         title="Real installations. Real savings."
         subtitle="A glimpse of how we've powered schools, factories, housing societies and homes across India."
@@ -194,6 +209,70 @@ function ProjectsPage() {
                   <div className="text-xs text-muted-foreground">{t.role}</div>
                 </div>
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* OUR CLIENTS — auto-scrolling logo marquee */}
+      <section className="overflow-hidden bg-white py-20 border-t border-gray-100">
+        <div className="container-x mb-12 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">Trusted By</p>
+            <h2 className="mt-4 text-4xl font-semibold">
+              Our <span className="text-gradient-gold">Clients.</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">
+              From schools and hospitals to resorts and industries — proud to power India's growth with clean solar energy.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Single Row — scrolls left */}
+        <div className="relative">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-white to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-white to-transparent" />
+          <div
+            className="flex items-center gap-10 hover:[animation-play-state:paused]"
+            style={{ animation: "marquee 28s linear infinite", width: "max-content" }}
+          >
+            {[
+              { src: logoNatureValley,  name: "Nature Valley Resorts" },
+              { src: logoCedarValley,   name: "Cedar Valley International School" },
+              { src: logoEcoVillage,    name: "Eco Village Resorts" },
+              { src: logoEeshaHospital, name: "Eesha Hospitals" },
+              { src: logoHarvestSchool, name: "Harvest Public School" },
+              { src: logoHarvestSpring, name: "Harvest Spring Leaf" },
+              { src: logoKarthikeya,    name: "Karthikeya Constructions" },
+              { src: logoNatureValley,  name: "Nature Valley Resorts" },
+              { src: logoCedarValley,   name: "Cedar Valley International School" },
+              { src: logoEcoVillage,    name: "Eco Village Resorts" },
+              { src: logoEeshaHospital, name: "Eesha Hospitals" },
+              { src: logoHarvestSchool, name: "Harvest Public School" },
+              { src: logoHarvestSpring, name: "Harvest Spring Leaf" },
+              { src: logoKarthikeya,    name: "Karthikeya Constructions" },
+            ].map((c, i) => (
+              <div
+                key={i}
+                className="group flex flex-shrink-0 flex-col items-center gap-3 rounded-2xl border border-gray-200 bg-white px-8 py-5 shadow-md transition-all hover:border-gold/50 hover:shadow-xl hover:-translate-y-1"
+                style={{ minWidth: "180px" }}
+              >
+                <div className="flex h-16 w-36 items-center justify-center overflow-hidden rounded-xl bg-white p-2">
+                  <img
+                    src={c.src}
+                    alt={c.name}
+                    className="max-h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
+                    loading="lazy"
+                  />
+                </div>
+                <span className="text-center text-[11px] font-bold leading-tight text-gray-600 group-hover:text-gold transition-colors">
+                  {c.name}
+                </span>
+              </div>
             ))}
           </div>
         </div>

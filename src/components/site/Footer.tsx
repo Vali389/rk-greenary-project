@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, Phone, MapPin, Sun, ArrowRight, FileText } from "lucide-react";
+import { Mail, Phone, MapPin, Sun, ArrowRight } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 export function Footer() {
@@ -48,15 +48,6 @@ export function Footer() {
             <li><Link to="/services" className="hover:text-gold transition-colors">Services</Link></li>
             <li><Link to="/projects" className="hover:text-gold transition-colors">Projects</Link></li>
             <li><Link to="/contact" className="hover:text-gold transition-colors">Contact</Link></li>
-            <li>
-              <Link
-                to="/certificate"
-                className="inline-flex items-center gap-1.5 hover:text-gold transition-colors"
-              >
-                <FileText className="h-3.5 w-3.5 text-gold" />
-                Certificates & Docs
-              </Link>
-            </li>
           </ul>
         </div>
 
@@ -81,7 +72,10 @@ export function Footer() {
           <ul className="space-y-3 text-sm text-white/60">
             <li className="flex items-start gap-3">
               <Phone className="mt-0.5 h-4 w-4 text-gold flex-shrink-0" />
-              <a href="tel:+919347920454" className="hover:text-gold transition-colors">+91 93479 20454</a>
+              <div className="flex flex-col gap-1">
+                <a href="tel:+919347920454" className="hover:text-gold transition-colors">+91 93479 20454</a>
+                <a href="tel:+919000272748" className="hover:text-gold transition-colors">+91 90002 72748</a>
+              </div>
             </li>
             <li className="flex items-start gap-3">
               <Mail className="mt-0.5 h-4 w-4 text-gold flex-shrink-0" />
@@ -97,7 +91,11 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-x flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/40 md:flex-row">
-          <p>© {new Date().getFullYear()} RK Green Mount Energies. All rights reserved.</p>
+          <div className="flex flex-col gap-1 md:flex-row md:items-center md:gap-4">
+            <p>© {new Date().getFullYear()} RK Green Mount Energies. All rights reserved.</p>
+            <span className="hidden md:inline text-white/20">|</span>
+            <p className="font-bold text-white/50">Developed by <a href="tel:+919014084396" className="hover:text-gold transition-colors text-white/90 font-extrabold">Babu (+91 90140 84396)</a></p>
+          </div>
           <p className="flex items-center gap-2">
             <Sun className="h-3.5 w-3.5 text-gold" /> Powering a greener tomorrow.
           </p>

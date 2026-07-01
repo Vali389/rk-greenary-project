@@ -99,6 +99,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+  const isExcluded = ["/aethera", "/linkflow"].includes(router.state.location.pathname);
+
+  if (isExcluded) {
+    return (
+      <QueryClientProvider client={queryClient}>
+        <main className="min-h-screen bg-white">
+          <Outlet />
+        </main>
+      </QueryClientProvider>
+    );
+  }
+
   return (
     <QueryClientProvider client={queryClient}>
       <FloatingActions />

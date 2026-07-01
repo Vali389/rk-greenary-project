@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, ArrowLeft } from "lucide-react";
+import { Check, ArrowRight, ArrowLeft, ExternalLink } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { getService, services, type Service } from "@/data/services";
 
@@ -21,15 +21,93 @@ export const Route = createFileRoute("/services/$slug")({
   ),
   head: ({ loaderData }) => ({
     meta: [
-      { title: `${loaderData?.title ?? "Service"} | RK Solar Green Mount` },
+      { title: `${loaderData?.title ?? "Service"} | RK Green Mount Energies` },
       { name: "description", content: loaderData?.description },
     ],
   }),
 });
 
+/* ─── Financing partner data ─────────────────────────────────────── */
+const financingPartners = [
+  {
+    id: "ecofy",
+    name: "Ecofy",
+    logo: "/logo-ecofy.png",
+    tagline: "India's Green-Only NBFC",
+    color: "#1a6b3a",
+    badge: "100% Funding*",
+    description:
+      "Ecofy is India's dedicated green NBFC, offering unsecured solar loans with a digital-first, paperless process. EMIs are designed to be lower than your current electricity bill — making solar truly cash-neutral from day one.",
+    highlights: [
+      "Collateral-free solar loans",
+      "AI-powered instant eligibility check",
+      "Digital KYC — Aadhaar & PAN only",
+      "Partnerships with leading EPC installers",
+      "Covers panels, inverters & BOS equipment",
+    ],
+    url: "https://www.ecofy.co.in",
+  },
+  {
+    id: "creditfair",
+    name: "Credit Fair",
+    logo: "/logo-creditfair.png",
+    tagline: "RBI-Registered Climate Fintech",
+    color: "#1a3c8f",
+    badge: "100% Funding*",
+    description:
+      "Credit Fair is an RBI-registered NBFC focused on climate financing since 2018. Listed on the JanSamarth portal and a PM Surya Ghar registered lender — covering residential, MSME, and housing-society solar projects.",
+    highlights: [
+      "100% online application-to-approval",
+      "EMI lower than electricity bill",
+      "PM Surya Ghar registered lender",
+      "MSME & housing society loans",
+      "Solar insurance integration",
+    ],
+    url: "https://www.creditfair.in",
+  },
+  {
+    id: "jiofinance",
+    name: "Jio Finance",
+    logo: "/logo-jiofinance.png",
+    tagline: "Reliance Group's Digital Finance Arm",
+    color: "#003087",
+    badge: "100% Funding*",
+    description:
+      "JioFinance brings Reliance's digital muscle to solar financing. Through the JioFinance app, customers access competitive green energy loans and solar leasing (Device-as-a-Service) with flexible tenures and minimal documentation.",
+    highlights: [
+      "Solar loans via the JioFinance app",
+      "Solar panel leasing (DaaS) for businesses",
+      "Competitive interest rates",
+      "Backed by Reliance's financial strength",
+      "Seamless digital journey end-to-end",
+    ],
+    url: "https://www.jiofinance.com",
+  },
+  {
+    id: "psubanks",
+    name: "Nationalised Banks",
+    logo: "/logo-psubanks.png",
+    tagline: "SBI • PNB • Bank of Baroda • Canara Bank",
+    color: "#7c3aed",
+    badge: "Up to 90% Funding",
+    description:
+      "Major PSU banks offer concessional solar loans under PM Surya Ghar aligned schemes — collateral-free up to ₹2 lakh, tenures up to 10 years, and interest rates as low as 5.75%. We coordinate directly with your bank branch.",
+    highlights: [
+      "SBI Yono Surya Ghar — from ~5.75% p.a.",
+      "PNB Rooftop Solar — up to 10-year tenure",
+      "Bank of Baroda Surya Ghar — 90% financing",
+      "Canara Bank — zero processing charge",
+      "Collateral-free up to ₹2 lakh",
+    ],
+    url: "https://www.pmsuryaghar.gov.in",
+  },
+];
+
+/* ─── Component ──────────────────────────────────────────────────── */
 function ServiceDetail() {
   const svc = Route.useLoaderData() as Service;
   const related = services.filter((s) => s.slug !== svc.slug).slice(0, 3);
+  const isFinancing = svc.slug === "financing";
 
   return (
     <>
@@ -72,6 +150,83 @@ function ServiceDetail() {
                 ))}
               </div>
             </div>
+
+            {/* ── Solar Financing Partners section (only for /services/financing) ── */}
+            {isFinancing && (
+              <div className="mt-20">
+                <p className="text-xs uppercase tracking-[0.3em] text-gold">Our Lending Partners</p>
+                <h3 className="mt-4 text-3xl font-semibold text-gray-900">Solar financing, made simple.</h3>
+                <p className="mt-3 text-gray-500 text-base leading-relaxed">
+                  We work with four trusted financial institutions that offer <strong>100% solar project funding</strong> (subject to customer credit profile). Pick the lender that suits you — we handle all the paperwork.
+                </p>
+
+                <div className="mt-10 grid gap-6 sm:grid-cols-2">
+                  {financingPartners.map((partner, i) => (
+                    <motion.div
+                      key={partner.id}
+                      initial={{ opacity: 0, y: 24 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 }}
+                      className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow"
+                    >
+                      {/* Color accent top bar */}
+                      <div className="absolute inset-x-0 top-0 h-1 rounded-t-2xl" style={{ backgroundColor: partner.color }} />
+
+                      {/* Header row */}
+                      <div className="flex items-start justify-between gap-3 mt-1">
+                        <div className="h-14 w-28 flex-shrink-0 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 flex items-center justify-center p-2">
+                          <img
+                            src={partner.logo}
+                            alt={`${partner.name} logo`}
+                            className="max-h-10 w-auto object-contain"
+                            onError={(e) => {
+                              (e.currentTarget as HTMLImageElement).style.display = "none";
+                            }}
+                          />
+                        </div>
+                        <span
+                          className="flex-shrink-0 rounded-full px-3 py-1 text-xs font-bold text-white shadow-sm"
+                          style={{ backgroundColor: partner.color }}
+                        >
+                          {partner.badge}
+                        </span>
+                      </div>
+
+                      <div className="mt-4">
+                        <h4 className="text-xl font-bold text-gray-900">{partner.name}</h4>
+                        <p className="text-xs font-semibold text-gray-400 mt-0.5">{partner.tagline}</p>
+                        <p className="mt-3 text-sm leading-relaxed text-gray-600">{partner.description}</p>
+                      </div>
+
+                      <ul className="mt-5 space-y-2">
+                        {partner.highlights.map((h) => (
+                          <li key={h} className="flex items-start gap-2.5 text-sm text-gray-700">
+                            <Check className="mt-0.5 h-4 w-4 flex-shrink-0" style={{ color: partner.color }} />
+                            <span>{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <a
+                        href={partner.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold hover:underline transition-colors"
+                        style={{ color: partner.color }}
+                      >
+                        Learn more <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Disclaimer */}
+                <p className="mt-6 text-xs text-gray-400 leading-relaxed">
+                  * 100% funding is subject to individual credit profile, income proof, and lender eligibility criteria. Interest rates and terms are indicative and subject to change per RBI and lender policy. RK Green Mount Energies acts as a facilitation partner only.
+                </p>
+              </div>
+            )}
           </div>
 
           <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
@@ -86,9 +241,12 @@ function ServiceDetail() {
                 ))}
               </ul>
             </div>
+
+
+
             <div className="rounded-2xl bg-gradient-gold p-7 text-primary-foreground shadow-gold">
               <h4 className="font-display text-2xl">Need a quote?</h4>
-              <p className="mt-2 text-sm opacity-90">Free survey &amp; feasibility report within 24 hours.</p>
+              <p className="mt-2 text-sm opacity-90">Free survey & feasibility report within 24 hours.</p>
               <Link to="/contact" className="mt-5 inline-flex items-center gap-2 rounded-full bg-navy-deep px-5 py-3 text-sm font-semibold text-white hover:opacity-90">
                 Get Free Quote <ArrowRight className="h-4 w-4" />
               </Link>

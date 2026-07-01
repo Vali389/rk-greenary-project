@@ -9,15 +9,22 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SolarFinancingRouteImport } from './routes/solar-financing'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as LinkflowRouteImport } from './routes/linkflow'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CertificateRouteImport } from './routes/certificate'
+import { Route as AetheraRouteImport } from './routes/aethera'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
+const SolarFinancingRoute = SolarFinancingRouteImport.update({
+  id: '/solar-financing',
+  path: '/solar-financing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -33,14 +40,19 @@ const ProjectsRoute = ProjectsRouteImport.update({
   path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LinkflowRoute = LinkflowRouteImport.update({
+  id: '/linkflow',
+  path: '/linkflow',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CertificateRoute = CertificateRouteImport.update({
-  id: '/certificate',
-  path: '/certificate',
+const AetheraRoute = AetheraRouteImport.update({
+  id: '/aethera',
+  path: '/aethera',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -62,32 +74,38 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/certificate': typeof CertificateRoute
+  '/aethera': typeof AetheraRoute
   '/contact': typeof ContactRoute
+  '/linkflow': typeof LinkflowRoute
   '/projects': typeof ProjectsRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/solar-financing': typeof SolarFinancingRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/certificate': typeof CertificateRoute
+  '/aethera': typeof AetheraRoute
   '/contact': typeof ContactRoute
+  '/linkflow': typeof LinkflowRoute
   '/projects': typeof ProjectsRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/solar-financing': typeof SolarFinancingRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/certificate': typeof CertificateRoute
+  '/aethera': typeof AetheraRoute
   '/contact': typeof ContactRoute
+  '/linkflow': typeof LinkflowRoute
   '/projects': typeof ProjectsRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/solar-financing': typeof SolarFinancingRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
 export interface FileRouteTypes {
@@ -95,46 +113,61 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
-    | '/certificate'
+    | '/aethera'
     | '/contact'
+    | '/linkflow'
     | '/projects'
     | '/services'
     | '/sitemap.xml'
+    | '/solar-financing'
     | '/services/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
-    | '/certificate'
+    | '/aethera'
     | '/contact'
+    | '/linkflow'
     | '/projects'
     | '/services'
     | '/sitemap.xml'
+    | '/solar-financing'
     | '/services/$slug'
   id:
     | '__root__'
     | '/'
     | '/about'
-    | '/certificate'
+    | '/aethera'
     | '/contact'
+    | '/linkflow'
     | '/projects'
     | '/services'
     | '/sitemap.xml'
+    | '/solar-financing'
     | '/services/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  CertificateRoute: typeof CertificateRoute
+  AetheraRoute: typeof AetheraRoute
   ContactRoute: typeof ContactRoute
+  LinkflowRoute: typeof LinkflowRoute
   ProjectsRoute: typeof ProjectsRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SolarFinancingRoute: typeof SolarFinancingRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/solar-financing': {
+      id: '/solar-financing'
+      path: '/solar-financing'
+      fullPath: '/solar-financing'
+      preLoaderRoute: typeof SolarFinancingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -156,6 +189,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/linkflow': {
+      id: '/linkflow'
+      path: '/linkflow'
+      fullPath: '/linkflow'
+      preLoaderRoute: typeof LinkflowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -163,11 +203,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/certificate': {
-      id: '/certificate'
-      path: '/certificate'
-      fullPath: '/certificate'
-      preLoaderRoute: typeof CertificateRouteImport
+    '/aethera': {
+      id: '/aethera'
+      path: '/aethera'
+      fullPath: '/aethera'
+      preLoaderRoute: typeof AetheraRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -209,11 +249,13 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  CertificateRoute: CertificateRoute,
+  AetheraRoute: AetheraRoute,
   ContactRoute: ContactRoute,
+  LinkflowRoute: LinkflowRoute,
   ProjectsRoute: ProjectsRoute,
   ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SolarFinancingRoute: SolarFinancingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
