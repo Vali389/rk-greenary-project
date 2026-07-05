@@ -4,6 +4,13 @@ import { Check, ArrowRight, Wallet, Shield, Zap, Sparkles, PhoneCall } from "luc
 import { PageHero } from "@/components/site/PageHero";
 import heroImage from "@/assets/svc_financing.png";
 
+// Import partner logos
+import logoEcofy from "@/assets/logo-ecofy.png";
+import logoCreditFair from "@/assets/logo-creditfair.png";
+import logoJioFinance from "@/assets/logo-jiofinance.png";
+import logoPsuBanks from "@/assets/logo-psubanks.png";
+import logoEfl from "@/assets/logo-efl.png";
+
 export const Route = createFileRoute("/solar-financing")({
   head: () => ({
     meta: [
@@ -17,27 +24,43 @@ export const Route = createFileRoute("/solar-financing")({
 const partners = [
   {
     name: "Ecofy",
-    logo: "/logo-ecofy.png",
-    description: "Green finance partner offering rooftop solar loan support.",
-    note: "Up to 100% funding based on customer profile and approval.",
+    logo: logoEcofy,
+    badge: "100% Funding*",
+    color: "#1a6b3a",
+    description: "Green finance partner offering rooftop solar loan support with quick paperless flow.",
+    note: "Up to 100% funding based on customer profile.",
   },
   {
     name: "Credit Fair",
-    logo: "/logo-creditfair.png",
-    description: "Solar financing with easy EMI options for eligible customers.",
-    note: "Loan approval depends on eligibility and lender policy.",
+    logo: logoCreditFair,
+    badge: "100% Funding*",
+    color: "#1a3c8f",
+    description: "Solar financing with easy EMI options for eligible residential & MSME customers.",
+    note: "Loan approval depends on eligibility.",
   },
   {
     name: "Jio Finance",
-    logo: "/logo-jiofinance.png",
-    description: "Flexible solar finance options for residential and commercial customers.",
-    note: "Funding depends on credit profile and document verification.",
+    logo: logoJioFinance,
+    badge: "100% Funding*",
+    color: "#003087",
+    description: "Flexible solar finance & leasing options for residential and commercial customers.",
+    note: "Funding depends on document verification.",
+  },
+  {
+    name: "EFL (Electronica Finance)",
+    logo: logoEfl,
+    badge: "100% Funding*",
+    color: "#059669",
+    description: "Fast-tracked green energy financing specializing in MSME and rooftop solar.",
+    note: "Up to 100% funding with quick processing.",
   },
   {
     name: "Nationalized Banks",
-    logo: "/logo-psubanks.png",
-    description: "Solar loan support through approved banking schemes.",
-    note: "Loan amount and margin depend on bank rules and customer eligibility.",
+    logo: logoPsuBanks,
+    badge: "Up to 90% Funding",
+    color: "#7c3aed",
+    description: "Concessional solar loan schemes (SBI, PNB, BoB) with low interest rates.",
+    note: "Loan amount depends on bank rules.",
   },
 ];
 
@@ -95,7 +118,7 @@ function SolarFinancingPage() {
                 Go Solar Today, Pay Later with <span className="text-gradient-gold">Easy Finance.</span>
               </h2>
               <p className="text-base text-gray-600 leading-relaxed">
-                RK Green Mount Energies helps residential, commercial, and industrial customers transition to solar energy smoothly. We provide end-to-end loan assistance and EMI options through India's leading green lenders, climate fintechs, and nationalized banks. 
+                RK Green Mount Energies helps residential, commercial, and industrial customers transition to solar energy smoothly. We provide end-to-end loan assistance and EMI options through India's leading green lenders, climate fintechs, and nationalized banks.
               </p>
               <p className="text-sm text-gray-500 leading-relaxed">
                 With options for up to 100% funding and flexible repayment tenures, your monthly EMI can be fully offset by the savings on your electricity bill.
@@ -138,23 +161,47 @@ function SolarFinancingPage() {
             <p className="mt-3 text-sm text-gray-500">Choose the partner that fits your financial goals</p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {partners.map((p) => (
-              <div
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {partners.map((p, i) => (
+              <motion.div
                 key={p.name}
-                className="flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.07 }}
+                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white p-7 pt-9 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
               >
-                <div>
-                  <div className="flex h-12 w-28 items-center justify-center overflow-hidden rounded-lg bg-gray-50 p-2 mb-5">
-                    <img src={p.logo} alt={p.name} className="max-h-8 w-auto object-contain" />
-                  </div>
-                  <h3 className="text-base font-bold text-gray-900">{p.name}</h3>
-                  <p className="mt-2 text-xs text-gray-500 leading-relaxed">{p.description}</p>
+                {/* Top accent color bar */}
+                <div className="absolute inset-x-0 top-0 h-1.5" style={{ backgroundColor: p.color }} />
+
+                {/* Absolute Badge */}
+                <div className="absolute top-5 right-5">
+                  <span
+                    className="rounded-full px-3 py-1 text-[10px] font-bold text-white shadow whitespace-nowrap"
+                    style={{ backgroundColor: p.color }}
+                  >
+                    {p.badge}
+                  </span>
                 </div>
-                <div className="mt-5 pt-3 border-t border-gray-100 text-[10px] font-bold text-gold">
+
+                <div>
+                  {/* Logo */}
+                  <div className="flex items-center justify-start bg-transparent mb-6">
+                    <img
+                      src={p.logo}
+                      alt={`${p.name} logo`}
+                      className="h-20 w-auto max-w-[220px] object-contain"
+                    />
+                  </div>
+
+                  <h3 className="text-base font-bold text-gray-900 group-hover:text-gold transition-colors">{p.name}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-500">{p.description}</p>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-gray-100 text-xs font-semibold text-gray-400 group-hover:text-gold transition-colors">
                   {p.note}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -193,7 +240,7 @@ function SolarFinancingPage() {
             <p className="mt-3 text-sm text-white/70 leading-relaxed">
               Customers can check eligibility instantly. Up to 100% funding is available depending on applicant profile, CIBIL score status, income stability, documentation completeness, and finance partner clearance.
             </p>
-            
+
             <div className="mt-8 pt-6 border-t border-white/15">
               <h4 className="text-xs font-bold uppercase tracking-wider text-white/60">⚠️ Important Disclaimer</h4>
               <p className="mt-2 text-xs text-white/50 leading-relaxed">

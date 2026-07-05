@@ -1,8 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Award, Leaf, Target, Eye, Users, BadgeCheck } from "lucide-react";
+import { Award, Leaf, Target, Eye, Users, BadgeCheck, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import heroImage from "@/assets/hero_about.png";
+import bgAboutCta from "@/assets/bg-about-cta.png";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
@@ -219,6 +220,28 @@ function AboutPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="relative overflow-hidden py-24">
+        <div className="absolute inset-0">
+          <img src={bgAboutCta} alt="" className="h-full w-full object-cover animate-ken-burns" loading="lazy" />
+          <div className="absolute inset-0 bg-navy-deep/30" />
+        </div>
+        <div className="container-x relative z-10 text-center">
+          <h2 className="mx-auto max-w-3xl text-4xl font-bold text-white md:text-5xl" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.6)" }}>
+            Ready to switch to <span className="text-gradient-gold">solar?</span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-lg text-white/80" style={{ textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}>
+            Get a free site survey and personalised quote within 24 hours.
+          </p>
+          <Link
+            to="/contact"
+            className="mt-10 inline-flex items-center gap-2 rounded-full bg-gradient-gold px-8 py-4 text-sm font-semibold text-white shadow-gold transition-transform hover:scale-105"
+          >
+            Get Free Quote <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
     </>

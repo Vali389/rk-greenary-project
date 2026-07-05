@@ -4,10 +4,9 @@ import {
   ArrowRight, Zap, Shield, Users, Leaf, BadgeCheck, Sun,
   Quote, Star, Award, Wallet, MapPin,
 } from "lucide-react";
-import img100kwp from "@/assets/100kwp-soloar-rooftop-system.jpeg";
-import img56kwp from "@/assets/56kwpsoloar-rooftop-system.jpeg";
-import img49kwp from "@/assets/49kwpsolarshedmountedsytsem.jpeg";
-import img6kwp from "@/assets/6kwpsolorrooftopsytem.jpeg";
+import imgCedarValley from "@/assets/100kwp-soloar-rooftop-system.jpeg";
+import imgGeethaMadhuri1 from "@/assets/15kwp - geetha madhuri.jpeg";
+import imgNuway1 from "@/assets/nuway-heattransferpvtltd-indrakaran-60kwat.jpeg";
 import bgHome from "@/assets/bg-home.jpg";
 import heroIllustration from "@/assets/hero_home_pano.png";
 import { services } from "@/data/services";
@@ -60,7 +59,7 @@ const badges = [
 
 const featuredProjects = [
   {
-    img: img100kwp,
+    img: imgCedarValley,
     kw: "100 kWp",
     type: "Commercial",
     client: "Cedar Valley International School",
@@ -68,40 +67,32 @@ const featuredProjects = [
     saving: "70% bill reduction",
   },
   {
-    img: img56kwp,
-    kw: "56 kWp",
-    type: "Industrial",
-    client: "Airco Fin Tubes Pvt. Ltd.",
-    location: "Isnapur, Telangana",
-    saving: "₹80K monthly savings",
-  },
-  {
-    img: img49kwp,
-    kw: "49 kWp",
-    type: "Industrial",
-    client: "Industrial Client",
-    location: "Hyderabad, Telangana",
-    saving: "₹45K+ monthly savings",
-  },
-  {
-    img: img6kwp,
-    kw: "6 kWp",
+    img: imgGeethaMadhuri1,
+    kw: "15 kWp",
     type: "Residential",
-    client: "Nature Valley Resorts",
+    client: "Singer Geetha Madhuri's Residence",
     location: "Hyderabad, Telangana",
-    saving: "90% bill reduction",
+    saving: "95% bill reduction",
   },
+  {
+    img: imgNuway1,
+    kw: "60 kWp",
+    type: "Industrial",
+    client: "Nu-way Heat Transfer Pvt. Ltd.",
+    location: "Indrakaran, Telangana",
+    saving: "₹85K monthly savings",
+  }
 ];
 
 // Our Clients — logo marquee data
 const clientLogos = [
-  { src: logoNatureValley,  name: "Nature Valley Resorts" },
-  { src: logoCedarValley,   name: "Cedar Valley International School" },
-  { src: logoEcoVillage,    name: "Eco Village Resorts" },
+  { src: logoNatureValley, name: "Nature Valley Resorts" },
+  { src: logoCedarValley, name: "Cedar Valley International School" },
+  { src: logoEcoVillage, name: "Eco Village Resorts" },
   { src: logoEeshaHospital, name: "Eesha Hospitals" },
   { src: logoHarvestSchool, name: "Harvest Public School" },
   { src: logoHarvestSpring, name: "Harvest Spring Leaf" },
-  { src: logoKarthikeya,    name: "Karthikeya Constructions" },
+  { src: logoKarthikeya, name: "Karthikeya Constructions" },
 ];
 
 // Hero marquee items
@@ -141,7 +132,7 @@ function Index() {
         {/* Animated Background Gradients & Grid */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           {/* Subtle Grid Pattern */}
-          <div 
+          <div
             className="absolute inset-0 opacity-[0.03]"
             style={{
               backgroundImage: 'linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)',
@@ -149,16 +140,16 @@ function Index() {
             }}
           />
           {/* Animated Glowing Orbs */}
-          <motion.div 
-            animate={{ 
+          <motion.div
+            animate={{
               scale: [1, 1.15, 1],
               opacity: [0.3, 0.6, 0.3],
             }}
             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -top-[10%] left-[10%] h-[45rem] w-[45rem] rounded-full bg-[#e6f5e6] blur-[100px]"
           />
-          <motion.div 
-            animate={{ 
+          <motion.div
+            animate={{
               scale: [1, 1.2, 1],
               opacity: [0.2, 0.5, 0.2],
             }}
@@ -247,11 +238,11 @@ function Index() {
         </div>
 
         {/* ──── Full Screen Background Image with Smooth Bottom Fade ──── */}
-        <div 
+        <div
           className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
-          style={{ 
-            maskImage: 'linear-gradient(to top, transparent, black 15%)', 
-            WebkitMaskImage: 'linear-gradient(to top, transparent, black 15%)' 
+          style={{
+            maskImage: 'linear-gradient(to top, transparent, black 15%)',
+            WebkitMaskImage: 'linear-gradient(to top, transparent, black 15%)'
           }}
         >
           <motion.div
@@ -261,7 +252,7 @@ function Index() {
             className="absolute inset-0 h-full w-full"
           >
             <motion.div
-              animate={{ scale: [1, 1.05, 1] }}
+              animate={{ scale: [1, 1.10, 1] }}
               transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
               className="h-full w-full origin-center"
             >
@@ -444,7 +435,7 @@ function Index() {
           >
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-gold">Our Work</p>
             <h2 className="mt-4 text-4xl font-bold text-foreground md:text-5xl">
-            Featured <span className="text-gradient-gold">Solar Projects.</span>
+              Featured <span className="text-gradient-gold">Solar Projects.</span>
             </h2>
             <p className="mt-5 text-lg text-muted-foreground">
               Real projects, real savings — see how we've transformed energy bills across India.
@@ -739,26 +730,21 @@ function Index() {
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-white to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-white to-transparent" />
           <div
-            className="flex items-center gap-10 hover:[animation-play-state:paused]"
+            className="flex items-center gap-4 hover:[animation-play-state:paused]"
             style={{ animation: "marquee 28s linear infinite", width: "max-content" }}
           >
             {[...clientLogos, ...clientLogos, ...clientLogos].map((c, i) => (
               <div
                 key={i}
-                className="group flex flex-shrink-0 flex-col items-center gap-3 rounded-2xl border border-gray-200 bg-white px-8 py-5 shadow-md transition-all hover:border-gold/50 hover:shadow-xl hover:-translate-y-1"
-                style={{ minWidth: "180px" }}
+                className="group flex h-28 w-52 flex-shrink-0 items-center justify-center rounded-2xl border border-gray-100 bg-white p-2 transition-all duration-300 hover:-translate-y-1 hover:bg-gradient-to-br hover:from-emerald-50 hover:to-green-100 hover:border-green-200 hover:shadow-lg hover:shadow-green-200/40"
               >
-                <div className="flex h-16 w-36 items-center justify-center overflow-hidden rounded-xl bg-white p-2">
-                  <img
-                    src={c.src}
-                    alt={c.name}
-                    className="max-h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
-                    loading="lazy"
-                  />
-                </div>
-                <span className="text-center text-[11px] font-bold leading-tight text-gray-600 group-hover:text-gold transition-colors">
-                  {c.name}
-                </span>
+                <img
+                  src={c.src}
+                  alt={c.name}
+                  title={c.name}
+                  className="max-h-20 max-w-[90%] object-contain transition-transform duration-300 group-hover:scale-110"
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
@@ -790,49 +776,41 @@ function Index() {
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-white to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-white to-transparent" />
           <div
-            className="flex items-center gap-8 hover:[animation-play-state:paused]"
+            className="flex items-center gap-4 hover:[animation-play-state:paused]"
             style={{ animation: "marquee 35s linear infinite", width: "max-content" }}
           >
             {[
-              { src: "/brands/adani-solar.png",      name: "Adani Solar",              category: "Panels" },
-              { src: "/brands/rayzon-solar.png",     name: "Rayzon Solar",             category: "Panels" },
-              { src: "/brands/premier-energies.png", name: "Premier Energies",         category: "Panels" },
-              { src: "/brands/vikram-solar.png",     name: "Vikram Solar",             category: "Panels" },
-              { src: "/brands/fronius.png",          name: "Fronius",                  category: "Inverters" },
-              { src: "/brands/polycab.png",          name: "Polycab",                  category: "Cables & BOS" },
-              { src: "/brands/growatt.png",          name: "Growatt",                  category: "Inverters" },
-              { src: "/brands/poweronemicro.png",    name: "Power One Microsystems",   category: "Inverters" },
-              { src: "/brands/solis.png",            name: "Solis",                    category: "Inverters" },
+              { src: "/brands/adani-solar.png", name: "Adani Solar", category: "Panels" },
+              { src: "/brands/rayzon-solar.png", name: "Rayzon Solar", category: "Panels" },
+              { src: "/brands/premier-energies.png", name: "Premier Energies", category: "Panels" },
+              { src: "/brands/vikram-solar.png", name: "Vikram Solar", category: "Panels" },
+              { src: "/brands/fronius.png", name: "Fronius", category: "Inverters" },
+              { src: "/brands/polycab.png", name: "Polycab", category: "Cables & BOS" },
+              { src: "/brands/growatt.png", name: "Growatt", category: "Inverters" },
+              { src: "/brands/poweronemicro.png", name: "Power One Microsystems", category: "Inverters" },
+              { src: "/brands/solis.png", name: "Solis", category: "Inverters" },
               // duplicate for seamless loop
-              { src: "/brands/adani-solar.png",      name: "Adani Solar",              category: "Panels" },
-              { src: "/brands/rayzon-solar.png",     name: "Rayzon Solar",             category: "Panels" },
-              { src: "/brands/premier-energies.png", name: "Premier Energies",         category: "Panels" },
-              { src: "/brands/vikram-solar.png",     name: "Vikram Solar",             category: "Panels" },
-              { src: "/brands/fronius.png",          name: "Fronius",                  category: "Inverters" },
-              { src: "/brands/polycab.png",          name: "Polycab",                  category: "Cables & BOS" },
-              { src: "/brands/growatt.png",          name: "Growatt",                  category: "Inverters" },
-              { src: "/brands/poweronemicro.png",    name: "Power One Microsystems",   category: "Inverters" },
-              { src: "/brands/solis.png",            name: "Solis",                    category: "Inverters" },
+              { src: "/brands/adani-solar.png", name: "Adani Solar", category: "Panels" },
+              { src: "/brands/rayzon-solar.png", name: "Rayzon Solar", category: "Panels" },
+              { src: "/brands/premier-energies.png", name: "Premier Energies", category: "Panels" },
+              { src: "/brands/vikram-solar.png", name: "Vikram Solar", category: "Panels" },
+              { src: "/brands/fronius.png", name: "Fronius", category: "Inverters" },
+              { src: "/brands/polycab.png", name: "Polycab", category: "Cables & BOS" },
+              { src: "/brands/growatt.png", name: "Growatt", category: "Inverters" },
+              { src: "/brands/poweronemicro.png", name: "Power One Microsystems", category: "Inverters" },
+              { src: "/brands/solis.png", name: "Solis", category: "Inverters" },
             ].map((b, i) => (
               <div
                 key={i}
-                className="group flex flex-shrink-0 flex-col items-center gap-2 rounded-2xl border border-gray-200 bg-white px-7 py-5 shadow-md transition-all hover:border-gold/50 hover:shadow-xl hover:-translate-y-1"
-                style={{ minWidth: "170px" }}
+                className="group flex h-28 w-52 flex-shrink-0 items-center justify-center rounded-2xl border border-gray-100 bg-white p-2 transition-all duration-300 hover:-translate-y-1 hover:bg-gradient-to-br hover:from-emerald-50 hover:to-green-100 hover:border-green-200 hover:shadow-lg hover:shadow-green-200/40"
               >
-                <div className="flex h-14 w-32 items-center justify-center overflow-hidden rounded-lg bg-white p-1">
-                  <img
-                    src={b.src}
-                    alt={b.name}
-                    className="max-h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
-                    loading="lazy"
-                  />
-                </div>
-                <span className="text-center text-[11px] font-bold leading-tight text-gray-700 group-hover:text-gold transition-colors">
-                  {b.name}
-                </span>
-                <span className="rounded-full bg-gold/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-gold">
-                  {b.category}
-                </span>
+                <img
+                  src={b.src}
+                  alt={b.name}
+                  title={b.name}
+                  className="max-h-20 max-w-[90%] object-contain transition-transform duration-300 group-hover:scale-110"
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
@@ -843,13 +821,13 @@ function Index() {
       <section className="relative overflow-hidden py-24">
         <div className="absolute inset-0">
           <img src={bgHome} alt="" className="h-full w-full object-cover animate-ken-burns" loading="lazy" />
-          <div className="absolute inset-0 bg-navy-deep/85" />
+          <div className="absolute inset-0 bg-navy-deep/30" />
         </div>
         <div className="container-x relative z-10 text-center">
-          <h2 className="mx-auto max-w-3xl text-4xl font-bold text-white md:text-5xl">
+          <h2 className="mx-auto max-w-3xl text-4xl font-bold text-white md:text-5xl" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.6)" }}>
             Ready to switch to <span className="text-gradient-gold">solar?</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-white/75">
+          <p className="mx-auto mt-5 max-w-2xl text-lg text-white/80" style={{ textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}>
             Get a free site survey and personalised quote within 24 hours.
           </p>
           <Link

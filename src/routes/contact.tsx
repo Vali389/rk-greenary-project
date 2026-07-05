@@ -114,7 +114,7 @@ function ContactPage() {
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
     setSubmitted(true);
-    window.open(url, "_blank");
+    window.location.href = url;
   }
 
   return (

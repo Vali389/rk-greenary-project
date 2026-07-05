@@ -4,6 +4,13 @@ import { Check, ArrowRight, ArrowLeft, ExternalLink } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { getService, services, type Service } from "@/data/services";
 
+// Import partner logos
+import logoEcofy from "@/assets/logo-ecofy.png";
+import logoCreditFair from "@/assets/logo-creditfair.png";
+import logoJioFinance from "@/assets/logo-jiofinance.png";
+import logoPsuBanks from "@/assets/logo-psubanks.png";
+import logoEfl from "@/assets/logo-efl.png";
+
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
     const svc = getService(params.slug);
@@ -32,7 +39,7 @@ const financingPartners = [
   {
     id: "ecofy",
     name: "Ecofy",
-    logo: "/logo-ecofy.png",
+    logo: logoEcofy,
     tagline: "India's Green-Only NBFC",
     color: "#1a6b3a",
     badge: "100% Funding*",
@@ -50,7 +57,7 @@ const financingPartners = [
   {
     id: "creditfair",
     name: "Credit Fair",
-    logo: "/logo-creditfair.png",
+    logo: logoCreditFair,
     tagline: "RBI-Registered Climate Fintech",
     color: "#1a3c8f",
     badge: "100% Funding*",
@@ -68,7 +75,7 @@ const financingPartners = [
   {
     id: "jiofinance",
     name: "Jio Finance",
-    logo: "/logo-jiofinance.png",
+    logo: logoJioFinance,
     tagline: "Reliance Group's Digital Finance Arm",
     color: "#003087",
     badge: "100% Funding*",
@@ -84,9 +91,27 @@ const financingPartners = [
     url: "https://www.jiofinance.com",
   },
   {
+    id: "efl",
+    name: "EFL (Electronica Finance)",
+    logo: logoEfl,
+    tagline: "India's Leading MSME & Solar Rooftop Lender",
+    color: "#059669",
+    badge: "100% Funding*",
+    description:
+      "Electronica Finance Limited (EFL) offers fast, specialized loan approvals for solar rooftop installations. Designed to cover up to 100% of project costs with competitive interest rates and minimal physical paperwork.",
+    highlights: [
+      "Up to 100% project cost funding",
+      "Specialized commercial & industrial loan schemes",
+      "Flexible repayment options up to 7 years",
+      "Quick eligibility assessment & paperless flow",
+      "Hassle-free, direct EPC coordination",
+    ],
+    url: "https://www.electronicafinance.com",
+  },
+  {
     id: "psubanks",
     name: "Nationalised Banks",
-    logo: "/logo-psubanks.png",
+    logo: logoPsuBanks,
     tagline: "SBI • PNB • Bank of Baroda • Canara Bank",
     color: "#7c3aed",
     badge: "Up to 90% Funding",
@@ -157,40 +182,39 @@ function ServiceDetail() {
                 <p className="text-xs uppercase tracking-[0.3em] text-gold">Our Lending Partners</p>
                 <h3 className="mt-4 text-3xl font-semibold text-gray-900">Solar financing, made simple.</h3>
                 <p className="mt-3 text-gray-500 text-base leading-relaxed">
-                  We work with four trusted financial institutions that offer <strong>100% solar project funding</strong> (subject to customer credit profile). Pick the lender that suits you — we handle all the paperwork.
+                  We work with trusted financial institutions that offer <strong>100% solar project funding</strong> (subject to customer credit profile). Pick the lender that suits you — we handle all the paperwork.
                 </p>
 
-                <div className="mt-10 grid gap-6 sm:grid-cols-2">
+                <div className="mt-10 grid gap-8 sm:grid-cols-2">
                   {financingPartners.map((partner, i) => (
                     <motion.div
                       key={partner.id}
                       initial={{ opacity: 0, y: 24 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: i * 0.1 }}
-                      className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow"
+                      transition={{ delay: i * 0.08 }}
+                      className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-7 pt-9 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
                     >
                       {/* Color accent top bar */}
-                      <div className="absolute inset-x-0 top-0 h-1 rounded-t-2xl" style={{ backgroundColor: partner.color }} />
+                      <div className="absolute inset-x-0 top-0 h-1.5 rounded-t-2xl" style={{ backgroundColor: partner.color }} />
 
-                      {/* Header row */}
-                      <div className="flex items-start justify-between gap-3 mt-1">
-                        <div className="h-14 w-28 flex-shrink-0 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 flex items-center justify-center p-2">
-                          <img
-                            src={partner.logo}
-                            alt={`${partner.name} logo`}
-                            className="max-h-10 w-auto object-contain"
-                            onError={(e) => {
-                              (e.currentTarget as HTMLImageElement).style.display = "none";
-                            }}
-                          />
-                        </div>
+                      {/* Absolute Badge */}
+                      <div className="absolute top-5 right-5">
                         <span
-                          className="flex-shrink-0 rounded-full px-3 py-1 text-xs font-bold text-white shadow-sm"
+                          className="rounded-full px-3 py-1 text-[10px] font-bold text-white shadow whitespace-nowrap"
                           style={{ backgroundColor: partner.color }}
                         >
                           {partner.badge}
                         </span>
+                      </div>
+
+                      {/* Logo */}
+                      <div className="flex items-center justify-start bg-transparent mb-6">
+                        <img
+                          src={partner.logo}
+                          alt={`${partner.name} logo`}
+                          className="h-20 w-auto max-w-[220px] object-contain"
+                        />
                       </div>
 
                       <div className="mt-4">

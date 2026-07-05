@@ -34,15 +34,26 @@ export function PageHero({ image, eyebrow, title, subtitle, height = "md", child
           WebkitMaskImage: 'linear-gradient(to top, transparent, black 15%)' 
         }}
       >
-        <div className="absolute inset-0 h-full w-full">
-          <img
-            src={image}
-            alt=""
-            className="h-full w-full object-cover object-[center_30%] opacity-100 origin-center block"
-            draggable={false}
-            loading="eager"
-          />
-        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute inset-0 h-full w-full"
+        >
+          <motion.div
+            animate={{ scale: [1, 1.10, 1] }}
+            transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
+            className="h-full w-full origin-center"
+          >
+            <img
+              src={image}
+              alt=""
+              className="h-full w-full object-cover object-[center_30%] opacity-100 origin-center block"
+              draggable={false}
+              loading="eager"
+            />
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Text Content */}
