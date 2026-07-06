@@ -12,7 +12,7 @@ interface PageHeroProps {
 }
 
 export function PageHero({ image, eyebrow, title, subtitle, height = "md", imagePosition, layout = "cover", children }: PageHeroProps) {
-  const h = height === "lg" ? "min-h-[90vh] py-28" : height === "sm" ? "min-h-[45vh] py-12" : "min-h-[60vh] py-16";
+  const h = height === "lg" ? "min-h-[95vh] py-36" : height === "sm" ? "min-h-[55vh] py-20" : "min-h-[90vh] py-28";
 
   if (layout === "split") {
     return (
@@ -99,7 +99,7 @@ export function PageHero({ image, eyebrow, title, subtitle, height = "md", image
 
   if (layout === "contain") {
     return (
-      <section className={`relative ${h} overflow-hidden bg-[#0c180c] flex flex-col justify-center mt-[80px]`}>
+      <section className={`relative ${h} overflow-hidden bg-[#0c180c] flex flex-col justify-start pt-16 md:pt-24 mt-[80px]`}>
         {/* Animated Background Gradients & Grid */}
         <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
           {/* Soft dark overlay on top of the image to ensure text is readable */}
@@ -193,7 +193,7 @@ export function PageHero({ image, eyebrow, title, subtitle, height = "md", image
   }
 
   return (
-    <section className={`relative ${h} overflow-hidden bg-navy-deep flex flex-col justify-center mt-[80px]`}>
+    <section className={`relative ${h} overflow-hidden bg-navy-deep flex flex-col justify-start pt-16 md:pt-24 mt-[80px]`}>
       {/* Animated Background Gradients & Grid */}
       <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
         {/* Soft layout overlay for text readability without blurring the background image */}
