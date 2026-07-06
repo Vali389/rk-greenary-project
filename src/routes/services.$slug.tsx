@@ -147,8 +147,8 @@ function ServiceDetail() {
               <p className="mt-6 text-lg text-gray-500">{svc.description}</p>
             </motion.div>
 
-            <div className="mt-12 overflow-hidden rounded-2xl border border-gray-200">
-              <img src={svc.image} alt={svc.title} className={`h-[420px] w-full object-cover animate-ken-burns ${svc.imagePosition === "top" ? "object-top" : "object-center"}`} loading="lazy" />
+            <div className="mt-12 overflow-hidden rounded-2xl border border-gray-200 bg-gray-50/50 flex justify-center p-2">
+              <img src={svc.image} alt={svc.title} className="max-h-[480px] w-auto object-contain rounded-xl" loading="lazy" />
             </div>
 
             <div className="mt-16">

@@ -93,8 +93,8 @@ export const services: Service[] = [
     title: "Solar Financing Support",
     tagline: "Easy solar loan and EMI options",
     image: financing,
-    layout: "split",
-    imagePosition: "top",
+    layout: "contain",
+    imagePosition: "center",
     description:
       "We help customers get solar loan and EMI support through trusted finance partners for rooftop solar installation.",
     features: [
@@ -115,7 +115,7 @@ export const services: Service[] = [
     title: "PM Surya Ghar",
     tagline: "Government subsidy. Free electricity.",
     image: suryaghar,
-    layout: "split",
+    layout: "contain",
     imagePosition: "top",
     description:
       "Get up to ₹78,000 in central government subsidy under the PM Surya Ghar Muft Bijli Yojana. We handle every step of your application — from registration to subsidy credit.",

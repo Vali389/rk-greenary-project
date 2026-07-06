@@ -106,7 +106,7 @@ function SolarFinancingPage() {
         eyebrow="Financing"
         title="Solar Financing Solutions"
         subtitle="Rooftop solar made affordable with easy loans & EMI options."
-        layout="split"
+        layout="contain"
       />
 
       {/* Overview */}
