@@ -99,7 +99,7 @@ export function PageHero({ image, eyebrow, title, subtitle, height = "md", image
 
   if (layout === "contain") {
     return (
-      <section className={`relative ${h} overflow-hidden bg-[#0c180c] flex flex-col justify-center mt-[76px]`}>
+      <section className={`relative ${h} overflow-hidden bg-[#0c180c] flex flex-col justify-center mt-[80px]`}>
         {/* Animated Background Gradients & Grid */}
         <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
           <div
@@ -110,10 +110,10 @@ export function PageHero({ image, eyebrow, title, subtitle, height = "md", image
             }}
           />
           {/* Soft dark overlay on top of the image to ensure text is readable */}
-          <div className="absolute inset-0 bg-black/25" />
+          <div className="absolute inset-0 bg-black/40 z-20" />
         </div>
 
-        {/* Full Screen Background Image - Contained & 100% Sharp */}
+        {/* Full Screen Background Image - Contained & 100% Sharp with Blurred Side Fills */}
         <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
           <motion.div
             initial={{ opacity: 0 }}
@@ -121,13 +121,27 @@ export function PageHero({ image, eyebrow, title, subtitle, height = "md", image
             transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0 h-full w-full"
           >
-            <img
-              src={image}
-              alt=""
-              className="h-full w-full object-contain opacity-100 origin-center block"
-              draggable={false}
-              loading="eager"
-            />
+            <motion.div
+              animate={{ scale: [1, 1.06, 1] }}
+              transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+              className="h-full w-full origin-center relative"
+            >
+              {/* Blurred background extension to cover full screen width */}
+              <img
+                src={image}
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover blur-3xl opacity-35 scale-105"
+                draggable={false}
+              />
+              {/* Sharp contained centered image */}
+              <img
+                src={image}
+                alt=""
+                className="h-full w-full object-contain opacity-100 origin-center block relative z-10"
+                draggable={false}
+                loading="eager"
+              />
+            </motion.div>
           </motion.div>
         </div>
 
