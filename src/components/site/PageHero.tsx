@@ -121,13 +121,19 @@ export function PageHero({ image, eyebrow, title, subtitle, height = "md", image
             transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0 h-full w-full"
           >
-            <img
-              src={image}
-              alt=""
-              className="h-full w-full object-contain opacity-100 origin-center block"
-              draggable={false}
-              loading="eager"
-            />
+            <motion.div
+              animate={{ scale: [1, 1.08, 1] }}
+              transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+              className="h-full w-full origin-center"
+            >
+              <img
+                src={image}
+                alt=""
+                className={`h-full w-full opacity-100 origin-center block ${layout === "contain" ? "object-contain" : "object-cover"} ${imagePosition === "top" ? "object-top" : imagePosition === "bottom" ? "object-bottom" : imagePosition === "center" ? "object-center" : "object-[center_30%]"}`}
+                draggable={false}
+                loading="eager"
+              />
+            </motion.div>
           </motion.div>
         </div>
 
@@ -202,21 +208,19 @@ export function PageHero({ image, eyebrow, title, subtitle, height = "md", image
           transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0 h-full w-full"
         >
-          {layout === "contain" && (
+          <motion.div
+            animate={{ scale: [1, 1.08, 1] }}
+            transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+            className="h-full w-full origin-center"
+          >
             <img
               src={image}
               alt=""
-              className="absolute inset-0 h-full w-full object-cover blur-2xl opacity-40 scale-105"
+              className={`h-full w-full opacity-100 origin-center block object-cover ${imagePosition === "top" ? "object-top" : imagePosition === "bottom" ? "object-bottom" : imagePosition === "center" ? "object-center" : "object-[center_30%]"}`}
               draggable={false}
+              loading="eager"
             />
-          )}
-          <img
-            src={image}
-            alt=""
-            className={`h-full w-full opacity-100 origin-center block ${layout === "contain" ? "object-contain" : "object-cover"} ${imagePosition === "top" ? "object-top" : "object-[center_30%]"}`}
-            draggable={false}
-            loading="eager"
-          />
+          </motion.div>
         </motion.div>
       </div>
 
