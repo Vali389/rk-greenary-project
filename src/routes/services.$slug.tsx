@@ -133,10 +133,11 @@ function ServiceDetail() {
   const svc = Route.useLoaderData() as Service;
   const related = services.filter((s) => s.slug !== svc.slug).slice(0, 3);
   const isFinancing = svc.slug === "financing";
+  const heroLayout = (svc.slug === "financing" || svc.slug === "pm-surya-ghar") ? "contain" : svc.layout;
 
   return (
     <>
-      <PageHero image={svc.image} eyebrow="Service" title={svc.title} subtitle={svc.tagline} height="md" imagePosition={svc.imagePosition} />
+      <PageHero image={svc.image} eyebrow="Service" title={svc.title} subtitle={svc.tagline} height="md" imagePosition={svc.imagePosition} layout={heroLayout} />
 
       <section className="bg-white py-24">
         <div className="container-x grid gap-14 lg:grid-cols-3">
