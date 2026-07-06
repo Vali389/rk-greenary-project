@@ -102,13 +102,6 @@ export function PageHero({ image, eyebrow, title, subtitle, height = "md", image
       <section className={`relative ${h} overflow-hidden bg-[#0c180c] flex flex-col justify-center mt-[80px]`}>
         {/* Animated Background Gradients & Grid */}
         <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage: 'linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)',
-              backgroundSize: '40px 40px'
-            }}
-          />
           {/* Soft dark overlay on top of the image to ensure text is readable */}
           <div className="absolute inset-0 bg-black/40 z-20" />
         </div>
@@ -203,13 +196,6 @@ export function PageHero({ image, eyebrow, title, subtitle, height = "md", image
     <section className={`relative ${h} overflow-hidden bg-navy-deep flex flex-col justify-center mt-[80px]`}>
       {/* Animated Background Gradients & Grid */}
       <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage: 'linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)',
-            backgroundSize: '40px 40px'
-          }}
-        />
         {/* Soft layout overlay for text readability without blurring the background image */}
         <div className="absolute inset-0 bg-[#0c180c]/35" />
       </div>
