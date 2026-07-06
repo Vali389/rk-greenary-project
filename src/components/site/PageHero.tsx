@@ -135,11 +135,19 @@ export function PageHero({ image, eyebrow, title, subtitle, height = "md", image
               />
               {/* Sharp centered image framed as a wide card */}
               <div className="absolute inset-0 flex items-center justify-center p-6 z-10">
-                <div className="w-full max-w-5xl aspect-[1.6] max-h-[70vh] rounded-3xl overflow-hidden shadow-2xl border border-white/15 bg-black/10">
+                <div className="w-full max-w-5xl aspect-[1.6] max-h-[70vh] rounded-3xl overflow-hidden shadow-2xl border border-white/15 bg-black/20 relative">
+                  {/* Blurred background extension inside the card */}
                   <img
                     src={image}
                     alt=""
-                    className="h-full w-full object-cover object-center block"
+                    className="absolute inset-0 h-full w-full object-cover blur-2xl opacity-40 scale-105"
+                    draggable={false}
+                  />
+                  {/* Sharp contained centered image showing 100% of the photo */}
+                  <img
+                    src={image}
+                    alt=""
+                    className="h-full w-full object-contain relative z-10 block"
                     draggable={false}
                     loading="eager"
                   />
