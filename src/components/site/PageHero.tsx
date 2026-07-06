@@ -12,11 +12,11 @@ interface PageHeroProps {
 }
 
 export function PageHero({ image, eyebrow, title, subtitle, height = "md", imagePosition, layout = "cover", children }: PageHeroProps) {
-  const h = height === "lg" ? "min-h-[95vh] py-36" : height === "sm" ? "min-h-[55vh] py-20" : "min-h-[90vh] py-28";
+  const h = height === "lg" ? "min-h-[90vh] py-28" : height === "sm" ? "min-h-[45vh] py-12" : "min-h-[60vh] py-16";
 
   if (layout === "split") {
     return (
-      <section className={`relative ${h} overflow-hidden bg-navy-deep flex flex-col justify-center mt-[76px]`}>
+      <section className={`relative ${h} overflow-hidden bg-navy-deep flex flex-col justify-center mt-[80px]`}>
         {/* Animated Background Gradients & Grid */}
         <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
           <div
