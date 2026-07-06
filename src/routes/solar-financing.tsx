@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Check, ArrowRight, Wallet, Shield, Zap, Sparkles, PhoneCall } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
-import heroImage from "@/assets/svc_financing.png";
+import heroImage from "@/assets/solar-financing.jpeg";
 
 // Import partner logos
 import logoEcofy from "@/assets/logo-ecofy.png";
@@ -106,6 +106,7 @@ function SolarFinancingPage() {
         eyebrow="Financing"
         title="Solar Financing Solutions"
         subtitle="Rooftop solar made affordable with easy loans & EMI options."
+        layout="split"
       />
 
       {/* Overview */}

@@ -4,6 +4,8 @@ import { Award, Leaf, Target, Eye, Users, BadgeCheck, ArrowRight } from "lucide-
 import { PageHero } from "@/components/site/PageHero";
 import heroImage from "@/assets/hero_about.png";
 import bgAboutCta from "@/assets/bg-about-cta.png";
+import imgShyam from "@/assets/Thum Shyam Prasad-CEO.jpeg";
+import imgRamesh from "@/assets/Ramesh-CEO.jpeg";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
@@ -25,14 +27,14 @@ const founders = [
   {
     name: "Thum Shyam Prasad",
     role: "Co-Founder & CEO",
-    image: "/founder-shyam.png",
+    image: imgShyam,
     bio: "With over 20 years in the renewable energy industry, Shyam Prasad has been the driving force behind RK Solar Green Mount's vision. His strategic leadership has helped the company grow from a small team of engineers to one of India's most trusted solar installers, serving residential, commercial, and industrial clients across 12+ states.",
     highlights: ["20+ Years Experience", "Strategic Leadership", "Pan-India Growth"],
   },
   {
     name: "K. Ramesh Goud",
     role: "Co-Founder & CTO",
-    image: "/founder-ramesh.png",
+    image: imgRamesh,
     bio: "Ramesh Goud is the technical backbone of RK Solar Green Mount. A solar technology expert, he drives innovation in engineering, product development, and installation excellence. His hands-on approach ensures every project meets the highest standards of quality, safety, and performance.",
     highlights: ["Solar Technology Expert", "Engineering Excellence", "Quality Assurance"],
   },

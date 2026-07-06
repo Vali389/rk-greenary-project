@@ -5,8 +5,8 @@ import {
   Quote, Star, Award, Wallet, MapPin,
 } from "lucide-react";
 import imgCedarValley from "@/assets/100kwp-soloar-rooftop-system.jpeg";
-import imgGeethaMadhuri1 from "@/assets/15kwp - geetha madhuri.jpeg";
-import imgNuway1 from "@/assets/nuway-heattransferpvtltd-indrakaran-60kwat.jpeg";
+import imgAparnaCarParking2 from "@/assets/solar-car-parking-30kwp(aparna-westren-meadows-welfare-society)-mokilla-img-2.jpeg";
+import imgNuway2 from "@/assets/nuway-heattransferpvtltd-indrakaran-60kwat-img2.jpeg";
 import bgHome from "@/assets/bg-home.jpg";
 import heroIllustration from "@/assets/hero_home_pano.png";
 import { services } from "@/data/services";
@@ -19,6 +19,7 @@ import logoEeshaHospital from "@/assets/eesha-hospitals.png";
 import logoHarvestSchool from "@/assets/harvest-publicshool.png";
 import logoHarvestSpring from "@/assets/harvest-spring-leaf.png";
 import logoKarthikeya from "@/assets/karthikeya-constryctions.png";
+import logoJain from "@/assets/jain-constructions-logo.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -30,7 +31,7 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const popularSlugs = new Set(["residential", "pm-surya-ghar"]);
+const popularSlugs = new Set(["residential"]);
 
 const why = [
   { icon: Users, title: "Expert Team", text: "Skilled engineers with deep solar expertise from residential to industrial." },
@@ -67,15 +68,15 @@ const featuredProjects = [
     saving: "70% bill reduction",
   },
   {
-    img: imgGeethaMadhuri1,
-    kw: "15 kWp",
+    img: imgAparnaCarParking2,
+    kw: "30 kWp",
     type: "Residential",
-    client: "Singer Geetha Madhuri's Residence",
-    location: "Hyderabad, Telangana",
-    saving: "95% bill reduction",
+    client: "Aparna Western Meadows Welfare Society",
+    location: "Mokilla, Telangana",
+    saving: "Common area grid-independent",
   },
   {
-    img: imgNuway1,
+    img: imgNuway2,
     kw: "60 kWp",
     type: "Industrial",
     client: "Nu-way Heat Transfer Pvt. Ltd.",
@@ -93,6 +94,7 @@ const clientLogos = [
   { src: logoHarvestSchool, name: "Harvest Public School" },
   { src: logoHarvestSpring, name: "Harvest Spring Leaf" },
   { src: logoKarthikeya, name: "Karthikeya Constructions" },
+  { src: logoJain, name: "Jain Constructions" },
 ];
 
 // Hero marquee items
@@ -397,7 +399,7 @@ function Index() {
                       src={s.image}
                       alt={s.title}
                       loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 ${s.imagePosition === "top" ? "object-top" : "object-center"}`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
                     {popularSlugs.has(s.slug) && (

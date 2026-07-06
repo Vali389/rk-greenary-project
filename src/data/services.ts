@@ -1,8 +1,8 @@
 import residential from "@/assets/svc_residential.png";
 import commercial from "@/assets/svc_commercial.png";
 import industrial from "@/assets/svc_industrial.png";
-import financing from "@/assets/svc_financing.png";
-import suryaghar from "@/assets/svc_suryaghar.png";
+import financing from "@/assets/solar-financing.jpeg";
+import suryaghar from "@/assets/pmsuryaghar.jpeg";
 import pmkusum from "@/assets/svc_pmkusum.png";
 import epc from "@/assets/svc_epc.png";
 
@@ -11,6 +11,7 @@ export type Service = {
   title: string;
   tagline: string;
   image: string;
+  imagePosition?: string;
   description: string;
   features: string[];
   process: { title: string; text: string }[];
@@ -92,6 +93,8 @@ export const services: Service[] = [
     title: "Solar Financing Support",
     tagline: "Easy solar loan and EMI options",
     image: financing,
+    layout: "split",
+    imagePosition: "top",
     description:
       "We help customers get solar loan and EMI support through trusted finance partners for rooftop solar installation.",
     features: [
@@ -111,7 +114,9 @@ export const services: Service[] = [
     slug: "pm-surya-ghar",
     title: "PM Surya Ghar",
     tagline: "Government subsidy. Free electricity.",
-    image: "/logo-pmsuryaghar.png",
+    image: suryaghar,
+    layout: "split",
+    imagePosition: "top",
     description:
       "Get up to ₹78,000 in central government subsidy under the PM Surya Ghar Muft Bijli Yojana. We handle every step of your application — from registration to subsidy credit.",
     features: [

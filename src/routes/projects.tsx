@@ -48,7 +48,7 @@ import imgSereneView from "@/assets/20kwp-serene-view-association-apartments-cha
 
 // Old project assets (Restored)
 import img49kwp from "@/assets/49kwpsolarshedmountedsytsem.jpeg";
-import img56kwp from "@/assets/56kwpsoloar-rooftop-system.jpeg";
+
 import img6kwp from "@/assets/6kwpsolorrooftopsytem.jpeg";
 import svcResidential from "@/assets/svc-residential.jpg";
 import svcSurya from "@/assets/svc-suryaghar.jpg";
@@ -193,15 +193,7 @@ const projects = [
     type: "Industrial",
     matter: "High-yield shed-mounted monocrystalline grid supporting continuous heavy industrial machinery operations."
   },
-  {
-    images: [img56kwp],
-    title: "56 kWp Rooftop System",
-    client: "Airco Fin Tubes Pvt. Ltd.",
-    location: "Isnapur, Telangana",
-    saving: "₹80K monthly savings",
-    type: "Industrial",
-    matter: "Industrial rooftop deployment optimized for maximizing surface area efficiency and integrating seamlessly with factory load centers."
-  },
+
   {
     images: [img6kwp],
     title: "6 kWp Residential System",

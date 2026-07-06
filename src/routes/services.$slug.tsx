@@ -136,7 +136,7 @@ function ServiceDetail() {
 
   return (
     <>
-      <PageHero image={svc.image} eyebrow="Service" title={svc.title} subtitle={svc.tagline} height="md" />
+      <PageHero image={svc.image} eyebrow="Service" title={svc.title} subtitle={svc.tagline} height="md" imagePosition={svc.imagePosition} />
 
       <section className="bg-white py-24">
         <div className="container-x grid gap-14 lg:grid-cols-3">
@@ -148,7 +148,7 @@ function ServiceDetail() {
             </motion.div>
 
             <div className="mt-12 overflow-hidden rounded-2xl border border-gray-200">
-              <img src={svc.image} alt={svc.title} className="h-[420px] w-full object-cover animate-ken-burns" loading="lazy" />
+              <img src={svc.image} alt={svc.title} className={`h-[420px] w-full object-cover animate-ken-burns ${svc.imagePosition === "top" ? "object-top" : "object-center"}`} loading="lazy" />
             </div>
 
             <div className="mt-16">
